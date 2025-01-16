@@ -1,1 +1,177 @@
-<h1>hallo! ik ben dom</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Printing On-Demand</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff512f;
+        }
+
+        .language-options {
+            margin-left: auto;
+        }
+
+        .language-options select {
+            padding: 5px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .cta a {
+            background: linear-gradient(45deg, #ff512f, #dd2476);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background 0.3s ease;
+        }
+
+        .cta a:hover {
+            background: linear-gradient(45deg, #dd2476, #ff512f);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">3D Printing</a>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Contacts</a>
+        </nav>
+        <div class="language-options">
+            <label for="language" hidden>Language: </label>
+            <select id="language">
+                <option value="en">English</option>
+                <option value="de">German</option>
+                <option value="nl">Dutch</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <section class="services">
+            <div class="service-card">
+                <h3>Custom Design Services</h3>
+                <p>Bring your imagination to life with our advanced 3D modeling tools and expert designers.</p>
+            </div>
+            <div class="service-card">
+                <h3>Prototype Printing</h3>
+                <p>Turn your concepts into physical prototypes with precision and speed.</p>
+            </div>
+            <div class="service-card">
+                <h3>Material Options</h3>
+                <p>Choose from a wide variety of materials, including PLA, ABS, resin, and metal.</p>
+            </div>
+            <div class="service-card">
+                <h3>Fast Delivery</h3>
+                <p>Get your products delivered to your doorstep within days.</p>
+            </div>
+        </section>
+
+        <div class="cta">
+            <a href="#">Order Your 3D Print Now</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 3D Printing On-Demand. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
