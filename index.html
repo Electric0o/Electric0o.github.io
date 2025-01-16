@@ -123,55 +123,129 @@
             padding: 15px;
             font-size: 0.9rem;
         }
+
+        .shop-container {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .calculator {
+            margin: 20px auto;
+            max-width: 400px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .calculator label, .calculator input {
+            display: block;
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        .calculator input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .calculator button {
+            background: linear-gradient(45deg, #ff512f, #dd2476);
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            width: 100%;
+        }
+
+        .calculator button:hover {
+            background: linear-gradient(45deg, #dd2476, #ff512f);
+        }
+
+        .calculator .result {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
     </style>
+    <script>
+        function calculateCost() {
+            const filamentCost = parseFloat(document.getElementById('filament-cost').value);
+            const filamentWeight = parseFloat(document.getElementById('filament-weight').value);
+            const maintenanceCost = filamentWeight * 0.02;
+            const energyCost = filamentWeight * 0.02;
+            const result = filamentCost * filamentWeight + maintenanceCost + energyCost;
+
+            if (!isNaN(result)) {
+                document.getElementById('total-cost').innerText = `Total Cost: €${result.toFixed(2)}`;
+            } else {
+                document.getElementById('total-cost').innerText = "Please enter valid values.";
+            }
+        }
+
+        function switchLanguage(lang) {
+            const texts = {
+                en: {
+                    home: "Home",
+                    shop: "Shop",
+                    contacts: "Contacts",
+                    contactInfo: "Contact: elec5854@gmail.com or Tel: 57383840",
+                    shopTitle: "Printing On-Demand",
+                    filamentCostLabel: "Filament Cost per kg (€):",
+                    filamentWeightLabel: "Filament Weight (kg):",
+                    calculate: "Calculate Total Cost",
+                    totalCost: "Total Cost"
+                },
+                de: {
+                    home: "Startseite",
+                    shop: "Geschäft",
+                    contacts: "Kontakte",
+                    contactInfo: "Kontakt: elec5854@gmail.com oder Tel.: 57383840",
+                    shopTitle: "3D-Druck auf Abruf",
+                    filamentCostLabel: "Filamentkosten pro kg (€):",
+                    filamentWeightLabel: "Filamentgewicht (kg):",
+                    calculate: "Gesamtkosten berechnen",
+                    totalCost: "Gesamtkosten"
+                },
+                nl: {
+                    home: "Homepagina",
+                    shop: "Winkel",
+                    contacts: "Contacten",
+                    contactInfo: "Contact: elec5854@gmail.com of Tel.: 57383840",
+                    shopTitle: "3D-printen op aanvraag",
+                    filamentCostLabel: "Filamentkosten per kg (€):",
+                    filamentWeightLabel: "Filamentgewicht (kg):",
+                    calculate: "Totale kosten berekenen",
+                    totalCost: "Totale kosten"
+                }
+            };
+
+            const t = texts[lang];
+            document.getElementById("home-link").innerText = t.home;
+            document.getElementById("shop-link").innerText = t.shop;
+            document.getElementById("contacts-link").innerText = t.contacts;
+            document.getElementById("contact-info").innerText = t.contactInfo;
+            document.getElementById("shop-title").innerText = t.shopTitle;
+            document.getElementById("filament-cost-label").innerText = t.filamentCostLabel;
+            document.getElementById("filament-weight-label").innerText = t.filamentWeightLabel;
+            document.getElementById("calculate-button").innerText = t.calculate;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('language').addEventListener('change', (e) => {
+                switchLanguage(e.target.value);
+            });
+        });
+    </script>
 </head>
 
 <body>
     <header>
         <a href="#" class="logo">3D Printing</a>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">Contacts</a>
-        </nav>
-        <div class="language-options">
-            <label for="language" hidden>Language: </label>
-            <select id="language">
-                <option value="en">English</option>
-                <option value="de">German</option>
-                <option value="nl">Dutch</option>
-            </select>
-        </div>
-    </header>
-
-    <div class="main-container">
-        <section class="services">
-            <div class="service-card">
-                <h3>Custom Design Services</h3>
-                <p>Bring your imagination to life with our advanced 3D modeling tools and expert designers.</p>
-            </div>
-            <div class="service-card">
-                <h3>Prototype Printing</h3>
-                <p>Turn your concepts into physical prototypes with precision and speed.</p>
-            </div>
-            <div class="service-card">
-                <h3>Material Options</h3>
-                <p>Choose from a wide variety of materials, including PLA, ABS, resin, and metal.</p>
-            </div>
-            <div class="service-card">
-                <h3>Fast Delivery</h3>
-                <p>Get your products delivered to your doorstep within days.</p>
-            </div>
-        </section>
-
-        <div class="cta">
-            <a href="#">Order Your 3D Print Now</a>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 3D Printing On-Demand. All rights reserved.</p>
-    </footer>
-</body>
-
-</html>
+            <a id="home-link" href="#">Home</a>
+            <a id="shop-link" href="#shop-page">Shop
