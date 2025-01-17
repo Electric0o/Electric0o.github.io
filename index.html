@@ -179,6 +179,16 @@
             <a href="#shop" class="button" data-lang="nl" style="display:none;">3D-print bestellen</a>
             <a href="#shop" class="button" data-lang="de" style="display:none;">3D-Druck bestellen</a>
         </section>
+       
+        <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data">
+    <label for="file-upload" data-lang="en">Upload your 3D file:</label>
+    <label for="file-upload" data-lang="nl" style="display:none;">Upload uw 3D-bestand:</label>
+    <label for="file-upload" data-lang="de" style="display:none;">Laden Sie Ihre 3D-Datei hoch:</label>
+    <input type="file" name="file" id="file-upload">
+    <button type="submit" class="button" data-lang="en">Send File</button>
+    <button type="submit" class="button" data-lang="nl" style="display:none;">Bestand verzenden</button>
+    <button type="submit" class="button" data-lang="de" style="display:none;">Datei senden</button>
+</form>
 
         <section id="contacts" class="section">
             <h2>Contact Us</h2>
