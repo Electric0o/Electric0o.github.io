@@ -83,8 +83,9 @@
     <script>
         function calculateCost() {
             const hours = parseFloat(document.getElementById('hours').value) || 0;
+            const grams = parseFloat(document.getElementById('grams').value) || 0;
             const maintenanceCost = hours * 0.02;
-            const filamentCost = 23;
+            const filamentCost = grams * 0.23; // 0.23 EUR per gram
             const energyCost = hours * 0.02;
             const totalCost = (maintenanceCost + filamentCost + energyCost) * 2;
             document.getElementById('total-cost').textContent = totalCost.toFixed(2) + ' EUR';
@@ -135,19 +136,48 @@
         </section>
 
         <section id="calculator" class="section">
-            <h2>3D Print Cost Calculator</h2>
-            <label for="hours">Printing Hours:</label>
+            <h2 data-lang="en">3D Print Cost Calculator</h2>
+            <h2 data-lang="nl" style="display:none;">3D-printkosten calculator</h2>
+            <h2 data-lang="de" style="display:none;">3D-Druckkostenrechner</h2>
+            <label for="hours" data-lang="en">Printing Hours:</label>
+            <label for="hours" data-lang="nl" style="display:none;">Drukuren:</label>
+            <label for="hours" data-lang="de" style="display:none;">Druckstunden:</label>
             <input type="number" id="hours" placeholder="Enter hours" onchange="calculateCost()">
-            <p>Maintenance Cost: 0.02 EUR/hour</p>
-            <p>Filament Cost: 23 EUR</p>
-            <p>Energy Cost: 0.02 EUR/hour</p>
-            <p><strong>Total Cost: <span id="total-cost">0.00 EUR</span></strong></p>
-            <button onclick="calculateCost()" class="button">Recalculate</button>
+
+            <label for="grams" data-lang="en">Filament Weight (grams):</label>
+            <label for="grams" data-lang="nl" style="display:none;">Filamentgewicht (gram):</label>
+            <label for="grams" data-lang="de" style="display:none;">Filamentgewicht (Gramm):</label>
+            <input type="number" id="grams" placeholder="Enter weight in grams" onchange="calculateCost()">
+
+            <p data-lang="en">Maintenance Cost: 0.02 EUR/hour</p>
+            <p data-lang="nl" style="display:none;">Onderhoudskosten: 0,02 EUR/uur</p>
+            <p data-lang="de" style="display:none;">Wartungskosten: 0,02 EUR/Stunde</p>
+
+            <p data-lang="en">Filament Cost: 0.23 EUR/gram</p>
+            <p data-lang="nl" style="display:none;">Filamentkosten: 0,23 EUR/gram</p>
+            <p data-lang="de" style="display:none;">Filamentkosten: 0,23 EUR/Gramm</p>
+
+            <p data-lang="en">Energy Cost: 0.02 EUR/hour</p>
+            <p data-lang="nl" style="display:none;">Energiekosten: 0,02 EUR/uur</p>
+            <p data-lang="de" style="display:none;">Energiekosten: 0,02 EUR/Stunde</p>
+
+            <p data-lang="en"><strong>Total Cost: <span id="total-cost">0.00 EUR</span></strong></p>
+            <p data-lang="nl" style="display:none;"><strong>Totale kosten: <span id="total-cost">0,00 EUR</span></strong></p>
+            <p data-lang="de" style="display:none;"><strong>Gesamtkosten: <span id="total-cost">0,00 EUR</span></strong></p>
+
+            <button onclick="calculateCost()" class="button" data-lang="en">Recalculate</button>
+            <button onclick="calculateCost()" class="button" data-lang="nl" style="display:none;">Opnieuw berekenen</button>
+            <button onclick="calculateCost()" class="button" data-lang="de" style="display:none;">Neu berechnen</button>
+
             <br><br>
-            <label for="file-upload">Upload your 3D file:</label>
+            <label for="file-upload" data-lang="en">Upload your 3D file:</label>
+            <label for="file-upload" data-lang="nl" style="display:none;">Upload uw 3D-bestand:</label>
+            <label for="file-upload" data-lang="de" style="display:none;">Laden Sie Ihre 3D-Datei hoch:</label>
             <input type="file" id="file-upload">
             <br>
-            <a href="#shop" class="button">Order 3D Print</a>
+            <a href="#shop" class="button" data-lang="en">Order 3D Print</a>
+            <a href="#shop" class="button" data-lang="nl" style="display:none;">3D-print bestellen</a>
+            <a href="#shop" class="button" data-lang="de" style="display:none;">3D-Druck bestellen</a>
         </section>
 
         <section id="contacts" class="section">
